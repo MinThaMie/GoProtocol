@@ -61,6 +61,7 @@ Argumenten:
 - opponentname: naam van de tegenstander, deze heeft impliciet de andere kleur dan die gecommuniceerd is met het READY keyword 
 Voorbeeld: `READY black barrybadpak\n`
 Betekent: Je kunt nu Go spelen tegen barrybadpak en jij hebt kleur zwart.
+
 ### Spel
 Zowel de server als de client kent de regels en past deze toe. De server handhaaft de regels en kan ze toeleggen op de client, daarnaast houdt de server de score bij. De regels en score van de server zijn **doorslaggevend**. De client doet een zet, checkt of deze volgens zijn eigen regels geldig is en stuurt deze naar de server. De server bepaalt of dit inderdaad een geldige zet is en communiceert dit aan beide clienten zodat deze de zet kunnen verwerken. Mogelijkheden van zetten zijn: een steen zetten, passen of opgeven. 
  
@@ -119,6 +120,7 @@ Argumenten:
 - name: naam van de speler die zendt, ter verificatie wie de afzender is 
 - message: het bericht, mag spaties bevatten, maar geen new line character 
 Voorbeeld: `CHAT barrybadpak Waar ga je heen met je kamelenteen?\n`
+
 ### Afsluiten
 Omdat de server weet wanneer het spel is afgelopen, kondigt de server dit aan bij alle clients o.v.v. de winnende kleur en de scores. 
  
