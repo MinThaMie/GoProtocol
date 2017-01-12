@@ -41,6 +41,7 @@ Keyword: `GO`
 Argumenten: 
 - name: alleen kleine letters en aan elkaar, naam.length() <= 20 
 - boardsize: een oneven integer: 9 <= boardsize <= 131 && boardsize % 2 != 0 
+
 Voorbeeld: `GO zangerrinus 9\n` 
 Betekent: Ik wil Go spelen op een 9x9 bord en ik heet zangerrinus. 
  
@@ -62,7 +63,8 @@ Argumenten:
 - color: kleur van de clientspeler
 -- black: zwart 
 -- white: wit 
-- opponentname: naam van de tegenstander, deze heeft impliciet de andere kleur dan die gecommuniceerd is met het READY keyword .
+- opponentname: naam van de tegenstander, deze heeft impliciet de andere kleur dan die gecommuniceerd is met het READY keyword 
+
 Voorbeeld: `READY black barrybadpak\n`
 Betekent: Je kunt nu Go spelen tegen barrybadpak en jij hebt kleur zwart.
 
@@ -77,6 +79,7 @@ Argumenten:
 - color: kleur van de speler die de zet doet 
 - x: x-coördinaat van zet 
 - y: y-coördinaat van zet 
+
 Voorbeeld: `MOVE black 13 14\n`
 Betekent: Zwart zet een steen op coordinaat 13,14
  
@@ -95,6 +98,7 @@ Server stuurt `INVALID` aan de client die ongeldige zet deed.
 Keyword: `INVALID` 
 Argumenten:
 - message: een String met de fouttekst / reden van ongeldigheid, mag spaties bevatten, maar geen new line character 
+
 Voorbeeld: `INVALID cannot place stone: negative coordinate\n`  
  
 #### Passen 
@@ -117,6 +121,7 @@ De server bevestigt dit aan alle clients.
 Keyword: `TABLEFLIPPED` 
 Argumenten:  
 - color [black/white]: kleur van de speler die gepast heeft 
+
 Voorbeeld: `TABLEFLIPPED black\n` 
 
 #### Chat 
@@ -125,6 +130,7 @@ Keyword: `CHAT`
 Argumenten: 
 - name: naam van de speler die zendt, ter verificatie wie de afzender is 
 - message: het bericht, mag spaties bevatten, maar geen new line character 
+
 Voorbeeld: `CHAT barrybadpak Waar ga je heen met je kamelenteen?\n`
 
 ---
@@ -137,4 +143,5 @@ Argumenten:
 - winnercolour: kleur van de winnaar 
 - blackscore: score van zwart, een double 
 - whitescore: score van wit, een double 
+
 Voorbeeld: `END white 16.0 17.5\n` 
