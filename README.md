@@ -175,11 +175,16 @@ Voorbeeld: `END 16.0 17.5\n`
 
 ### Vragen aan coaches
 - [x] Ko rule, multiple moves backward looking
-Ja dit moet!
+
+_Ja dit moet!_
 - [x] Wordt 0.5, 6.5, 7.5 of geen extra score toegevoegd aan wit? (Aka kan draw)
-NEE. Er kan dus draw zijn.
+
+_NEE. Er kan dus draw zijn._
 - [x] Hoe wordt de area score berekend? Vooral als er stenen van de tegenstander in jouw gebied liggen?
-Als er stenen in jou gebied liggen krijg je GEEN punten. aka je moet ze eerst slaan.
+
+_Als er stenen in jou gebied liggen krijg je GEEN punten. aka je moet ze eerst slaan._
 - [x] De openJML hoeft dus niet? Wordt Google Java Style aangeraden of die van Blackboard?
-OpenJML hoeft NIET. Ze willen graag EEN checkstyle (welke je neemt mag je zelf weten, Google Java Style wordt aangeraden)
-- [ ] Dorien: Wat te doen met score als iemand TABLEFLIPPED? 1. Geen score, 2. Bereken huidige score, 3. Geef andere speler het hele bord, 4. anders.
+
+_OpenJML hoeft NIET. Ze willen graag EEN checkstyle (welke je neemt mag je zelf weten, Google Java Style wordt aangeraden)_
+- [ ] Dorien: Wat te doen met score als iemand TABLEFLIPPED? 
+_1. Geen score, 2. Bereken huidige score, 3. Geef andere speler het hele bord, 4. anders._
