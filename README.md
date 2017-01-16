@@ -145,10 +145,11 @@ Voorbeeld: `TABLEFLIPPED black\n`
 Een chatbericht kan door zowel clients als servers gestuurd worden. 
 Keyword: `CHAT`
 Argumenten: 
-- name: naam van de speler die zendt, ter verificatie wie de afzender is 
 - message: het bericht, mag spaties bevatten, maar geen new line character 
 
-Voorbeeld: `CHAT barrybadpak Waar ga je heen met je kamelenteen?\n`
+Voorbeeld: `CHAT Waar ga je heen met je kamelenteen?\n`
+
+> Het toevoegen van de naam is overbodig, omdat de naam van de speler aan het begin van het spel al gegeven wordt. (En anders kunnen mensen vals spelen door te doen alsof iemand anders iets zegt).
 
 
 #### Warning
