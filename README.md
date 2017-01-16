@@ -187,4 +187,5 @@ _Als er stenen in jou gebied liggen krijg je GEEN punten. aka je moet ze eerst s
 
 _OpenJML hoeft NIET. Ze willen graag EEN checkstyle (welke je neemt mag je zelf weten, Google Java Style wordt aangeraden)_
 - [ ] Dorien: Wat te doen met score als iemand TABLEFLIPPED? 
+
 _1. Geen score, 2. Bereken huidige score, 3. Geef andere speler het hele bord, 4. anders._
