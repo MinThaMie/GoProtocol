@@ -167,11 +167,13 @@ Omdat de server weet wanneer het spel is afgelopen, kondigt de server dit aan bi
  
 Keyword: `END` 
 Argumenten: 
-- winnercolour: kleur van de winnaar 
 - blackscore: score van zwart, een double 
 - whitescore: score van wit, een double 
 
-Voorbeeld: `END white 16.0 17.5\n` 
+Voorbeeld: `END 16.0 17.5\n` 
+
+> De kleur was hier overbodig.
 
 ### Vragen aan coaches
 - [ ] Ko rule, multiple moves backward looking
+- [ ] Wordt 0.5, 6.5, 7.5 of geen extra score toegevoegd aan wit? (Aka kan draw)
