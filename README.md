@@ -74,7 +74,7 @@ Argumenten:
 -- black: zwart 
 -- white: wit 
 - opponentname: naam van de tegenstander, deze heeft impliciet de andere kleur dan die gecommuniceerd is met het READY keyword 
-- boardsize: groote van het bord
+- boardsize: grootte van het bord
 
 Voorbeeld: `READY black barrybadpak 9\n`
 Betekent: Je kunt nu Go spelen tegen barrybadpak en jij hebt kleur zwart.
@@ -177,3 +177,4 @@ Voorbeeld: `END 16.0 17.5\n`
 ### Vragen aan coaches
 - [ ] Ko rule, multiple moves backward looking
 - [ ] Wordt 0.5, 6.5, 7.5 of geen extra score toegevoegd aan wit? (Aka kan draw)
+- [ ] Hoe wordt de area score berekend? Vooral als er stenen van de tegenstander in jouw gebied liggen?
