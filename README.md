@@ -11,11 +11,16 @@ Deze worden verdeeld in:
 - Verantwoordelijkheden client 
 - Verantwoordelijkheden server 
  
-We beschouwen de server we als perfect en de waarheid, de clients mogen hiervan uitgaan. 
+We beschouwen de server we als perfect en de waarheid, de clients mogen hiervan uitgaan.
+
+> Een speler (client) wordt gekicked (van de server) als deze een invalid move stuurt. Je kunt dit namelijk opvangen in je client.
+> Je kunt niet iemand kicken op een 'unknown' keyword (anders kick je bijv. iemand voor het chatten). De server nergeert ze.
+De server mag terugcommuniceren dit ie het keyword niet begrijpt. BV `WARNING keyword CHAT unknown`.
+
  
 Nog af te spreken na deze sessie: 
-- [ ] Wanneer kicken we een speler? Hoeveel invalid moves mag diegene uitvoeren? 
-- [ ] Wat doen we als een keyword binnenkomt dat niet is afgesproken? 
+- [x] Wanneer kicken we een speler? Hoeveel invalid moves mag diegene uitvoeren? 
+- [x] Wat doen we als een keyword binnenkomt dat niet is afgesproken? 
 
 ---
 
@@ -133,6 +138,15 @@ Argumenten:
 
 Voorbeeld: `CHAT barrybadpak Waar ga je heen met je kamelenteen?\n`
 
+
+#### Warning
+De server kan een warning geven aan de client als hij een bepaald keyword niet herkend.
+Keyword: `WARNING`
+Argumenten: 
+- message: de warning message.
+
+Voorbeeld : `WARNING keyword CHAT unknown`
+
 ---
 
 ### Afsluiten
@@ -145,3 +159,6 @@ Argumenten:
 - whitescore: score van wit, een double 
 
 Voorbeeld: `END white 16.0 17.5\n` 
+
+### Vragen aan coaches
+- [ ] Ko rule, multiple moves backward looking
