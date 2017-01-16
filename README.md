@@ -101,13 +101,16 @@ De oriëntatie van x en y zijn niet afgesproken, maar worden geïmplementeerd do
 Indien geldig (gecontroleerd door server), stuurt server aan alle clients een bevestiging. 
  
 Keyword: `VALID` 
-Argumenten: zie `Client.MOVE` 
+Argumenten: 
+- color: [black/white] kleur van de steen die geplaatst is
+- x: x-coördinaat van zet 
+- y: y-coördinaat van zet 
 Voorbeeld: `VALID black 13 14\n` 
  
 #### Ongeldige zet 
 Een speler doet een ongeldige zet. Er zijn allerlei redenen voor ongeldigheid, maar een voorbeeld is een negatieve coördinaat in een MOVE. 
  
-Server stuurt `INVALID` aan de client die ongeldige zet deed. 
+Server stuurt `INVALID` aan de client die ongeldige zet deed **en kicked deze uit de game**.
 Keyword: `INVALID` 
 Argumenten:
 - message: een String met de fouttekst / reden van ongeldigheid, mag spaties bevatten, maar geen new line character 
@@ -117,7 +120,8 @@ Voorbeeld: `INVALID cannot place stone: negative coordinate\n`
 #### Passen 
 De client kan passen om geen zet te doen. 
 Keyword: `PASS` 
-Argumenten: geen 
+Argumenten:
+- color: [black/white] kleur van de speler die past
  
 De server bevestigt dit aan alle clients. 
 Keyword: `PASSED` 
@@ -133,7 +137,7 @@ Argumenten: geen
 De server bevestigt dit aan alle clients. 
 Keyword: `TABLEFLIPPED` 
 Argumenten:  
-- color [black/white]: kleur van de speler die gepast heeft 
+- color [black/white]: kleur van de speler die opgeeft heeft 
 
 Voorbeeld: `TABLEFLIPPED black\n` 
 
