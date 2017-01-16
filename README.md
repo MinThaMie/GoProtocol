@@ -47,7 +47,7 @@ Keyword: `GO`
 Argumenten: 
 - name: alleen kleine letters en aan elkaar, naam.length() <= 20 
 - boardsize: een oneven integer: 5 <= boardsize <= 131 && boardsize % 2 != 0 
-(optional: - otherName: naam van de tegenstander, alleen kleine letters en aan elkaar, naam.length() <= 20)
+- (optional) otherName: naam van de tegenstander, alleen kleine letters en aan elkaar, naam.length() <= 20)
 
 Voorbeeld: `GO zangerrinus 9\n` 
 Betekent: Ik wil Go spelen op een 9x9 bord en ik heet zangerrinus. 
@@ -87,14 +87,16 @@ Zowel de server als de client kent de regels en past deze toe. De server handhaa
 #### Geldige zet 
 Keyword: `MOVE` 
 Argumenten: 
-- color: kleur van de speler die de zet doet 
 - x: x-coördinaat van zet 
 - y: y-coördinaat van zet 
 
-Voorbeeld: `MOVE black 13 14\n`
-Betekent: Zwart zet een steen op coordinaat 13,14
+Voorbeeld: `MOVE 13 14\n`
+Betekent: De huidige speler zet een steen op coordinaat 13,14
+
+> We hebben er voor gekozen om de kleur niet mee te sturen, aangezien dit vals spelen bevorderd. Aka de server moet dan sowieso checken welke kleur een speler heeft (dus dan heeft het meesturen geen zin).
  
 De oriëntatie van x en y zijn niet afgesproken, maar worden geïmplementeerd door de client. Het bord kan er voor iedereen dus anders uitzien, maar (4,5) is bij iedereen natuurlijk wel (4,5). 
+> Het is wel handig om de x,y orientatie van de GUI aan te houden.
  
 Indien geldig (gecontroleerd door server), stuurt server aan alle clients een bevestiging. 
  
