@@ -178,3 +178,4 @@ Voorbeeld: `END 16.0 17.5\n`
 - [ ] Ko rule, multiple moves backward looking
 - [ ] Wordt 0.5, 6.5, 7.5 of geen extra score toegevoegd aan wit? (Aka kan draw)
 - [ ] Hoe wordt de area score berekend? Vooral als er stenen van de tegenstander in jouw gebied liggen?
+- [ ] De openJML hoeft dus niet? Wordt Google Java Style aangeraden of die van Blackboard?
