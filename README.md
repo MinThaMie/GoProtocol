@@ -120,8 +120,7 @@ Voorbeeld: `INVALID cannot place stone: negative coordinate\n`
 #### Passen 
 De client kan passen om geen zet te doen. 
 Keyword: `PASS` 
-Argumenten:
-- color: [black/white] kleur van de speler die past
+Argumenten: geen
  
 De server bevestigt dit aan alle clients. 
 Keyword: `PASSED` 
