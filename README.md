@@ -13,11 +13,6 @@ Deze worden verdeeld in:
  
 We beschouwen de server we als perfect en de waarheid, de clients mogen hiervan uitgaan.
 
-> Een speler (client) wordt gekicked (van de server) als deze een invalid move stuurt. Je kunt dit namelijk opvangen in je client.
-> Je kunt niet iemand kicken op een 'unknown' keyword (anders kick je bijv. iemand voor het chatten). De server nergeert ze.
-De server mag terugcommuniceren dit ie het keyword niet begrijpt. BV `WARNING keyword CHAT unknown`.
-
- 
 Nog af te spreken na deze sessie: 
 - [x] Wanneer kicken we een speler? Hoeveel invalid moves mag diegene uitvoeren? 
 - [x] Wat doen we als een keyword binnenkomt dat niet is afgesproken? 
@@ -27,15 +22,21 @@ Nog af te spreken na deze sessie:
 ### Algemeen
 #### Er is één interface voor een server 
 Iedereen maakt zijn eigen implementatie van de server die de interface implementeert. 
-- [ ] Maken van een server interface
+- [x] Maken van een server interface
+> Dit gaan we niet doen.
  
 #### Communicatie tussen server en client
 Alle communicatie tussen server en clients gebeurt d.m.v. een commando (keyword) in hoofdletters gevolgd door een spatie. Dit keyword staat altijd aan het begin van de input. Evt. argumenten volgen gescheiden door spaties. Deze argumenten zijn altijd geschreven in kleine letters. Messages (Strings) mogen wel hoofdletters bevatten, zoals bij `CHAT` en `INVALID`. Het einde van de communicatie is een new line character: \n. 
  
 #### Ongeldige keywords
-TBA 
+Deze mogen genegeerd worden. 
+
+> Je kunt niet iemand kicken op een 'unknown' keyword (anders kick je bijv. iemand voor het chatten). De server nergeert ze.
+De server mag terugcommuniceren dit ie het keyword niet begrijpt. BV `WARNING keyword CHAT unknown`.
+
 #### Wanneer kicken? 
-TBA
+> Een speler (client) wordt gekicked (van de server) als deze een invalid move stuurt. Je kunt dit namelijk opvangen in je client.
+
 
 ---
 
@@ -69,6 +70,7 @@ Argumenten:
 -- black: zwart 
 -- white: wit 
 - opponentname: naam van de tegenstander, deze heeft impliciet de andere kleur dan die gecommuniceerd is met het READY keyword 
+- boardsize: grote van het bord
 
 Voorbeeld: `READY black barrybadpak\n`
 Betekent: Je kunt nu Go spelen tegen barrybadpak en jij hebt kleur zwart.
