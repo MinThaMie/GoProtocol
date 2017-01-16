@@ -46,10 +46,14 @@ Een client wil een spel starten, de server is in een staat waarin hij toegankeli
 Keyword: `GO`
 Argumenten: 
 - name: alleen kleine letters en aan elkaar, naam.length() <= 20 
-- boardsize: een oneven integer: 9 <= boardsize <= 131 && boardsize % 2 != 0 
+- boardsize: een oneven integer: 5 <= boardsize <= 131 && boardsize % 2 != 0 
+(optional: - otherName: naam van de tegenstander, alleen kleine letters en aan elkaar, naam.length() <= 20)
 
 Voorbeeld: `GO zangerrinus 9\n` 
 Betekent: Ik wil Go spelen op een 9x9 bord en ik heet zangerrinus. 
+
+> Als er meerdere clients zijn, die een verschillende bordgrootte requesten mag de server verschillende dingen doen.
+Zoals bijv. twee mensen met verschillende grootte aan elkaar koppelen (de server geeft aan welke bordgrootte gekozen is, zie READY), of meerdere spellen klaar zetten en wachten.
  
 #### Wachten 
 De client en server wachten op een tweede speler. De client kan de verbinding verbreken om te annuleren, de server moet zijn verloren verbinding goed afhandelen. 
@@ -70,9 +74,9 @@ Argumenten:
 -- black: zwart 
 -- white: wit 
 - opponentname: naam van de tegenstander, deze heeft impliciet de andere kleur dan die gecommuniceerd is met het READY keyword 
-- boardsize: grote van het bord
+- boardsize: groote van het bord
 
-Voorbeeld: `READY black barrybadpak\n`
+Voorbeeld: `READY black barrybadpak 9\n`
 Betekent: Je kunt nu Go spelen tegen barrybadpak en jij hebt kleur zwart.
 
 ---
