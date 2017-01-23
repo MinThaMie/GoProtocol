@@ -127,6 +127,8 @@ Keyword: `PASSED`
 Argumenten: 
 - color [black/white]: kleur van de speler die gepast heeft 
 Voorbeeld: `PASSED white\n` 
+
+> We geven een kleur door voor het geval dat iemand met drie kleuren/spelers wil spelen.
  
 #### Opgeven 
 Een clientspeler kan opgeven. 
