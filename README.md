@@ -113,6 +113,7 @@ Een speler doet een ongeldige zet. Er zijn allerlei redenen voor ongeldigheid, m
 Server stuurt `INVALID` aan de client die ongeldige zet deed **en kicked deze uit de game**.
 Keyword: `INVALID` 
 Argumenten:
+- color: [black/white] kleur van de speler die een invalid move gemaakt heeft
 - message: een String met de fouttekst / reden van ongeldigheid, mag spaties bevatten, maar geen new line character 
 
 Voorbeeld: `INVALID cannot place stone: negative coordinate\n`  
