@@ -166,10 +166,10 @@ Omdat de server weet wanneer het spel is afgelopen, kondigt de server dit aan bi
  
 Keyword: `END` 
 Argumenten: 
-- blackscore: score van zwart, een double 
-- whitescore: score van wit, een double 
+- blackscore: score van zwart, een `int`
+- whitescore: score van wit, een `int` 
 
-Voorbeeld: `END 16.0 17.5\n` 
+Voorbeeld: `END 16 17\n` 
 
 > De kleur was hier overbodig.
 
