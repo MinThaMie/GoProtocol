@@ -177,7 +177,7 @@ Argumenten:
 - color: [black/white] kleur van de speler die een invalid move gemaakt heeft
 - message: een String met de fouttekst / reden van ongeldigheid, mag spaties bevatten, maar geen new line character 
 
-Voorbeeld: `INVALID cannot place stone: negative coordinate\n`  
+Voorbeeld: `INVALID black cannot place stone: negative coordinate\n`  
  
 #### Passen 
 De client kan passen om geen zet te doen. 
@@ -259,3 +259,29 @@ _OpenJML hoeft NIET. Ze willen graag EEN checkstyle (welke je neemt mag je zelf 
 - [ ] Dorien: Wat te doen met score als iemand TABLEFLIPPED? 
 
 _1. Geen score, 2. Bereken huidige score, 3. Geef andere speler het hele bord, 4. anders._
+
+## Samenvatting Protocol
+Een samenvatting van alle keywords in het protocol.
+> Als er 'stone' staat dan wordt er de kleur van de steen bedoelt, let op! deze is in kleine letters (dus "black" of "white", of een andere kleur ivm meerdere spelers).
+
+> Als er `...` staat dan is het mogelijk om hier de vorige argumenten te repeteren voor eventuele extra spelers.
+
+|Keyword | Argumenten | Type van de Argumenten |
+| ------------- |:-------------:| -----:|
+| PLAYER | name | String |
+| GO | boardSize | int |
+| WAITING | - | - |
+| CANCEL | - | - |
+| READY | boardSize color1 name1 color2 name2 ... | int stone String stone String ... |
+| EXIT | - | - |
+| MOVE | x y | int int |
+| INVALID | color msg | stone String |
+| PASS | - | - |
+| PASSED | color | stone |
+| TABLEFLIP | - | - |
+| TABLEFLIPPED | color | stone |
+| END | score1 score2 ... | int int ... |
+| CHAT | msg | String |
+| WARNING | msg | String |
+
+
