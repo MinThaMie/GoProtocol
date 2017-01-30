@@ -269,7 +269,7 @@ Een samenvatting van alle keywords in het protocol.
 > Als er `...` staat dan is het mogelijk om hier de vorige argumenten te repeteren voor eventuele extra spelers.
 
 |Keyword | Argumenten | Type van de Argumenten |
-| ------------- |:-------------:| -----:|
+| ------------- |-------------| -----|
 | PLAYER | name | String |
 | GO | boardSize | int |
 | WAITING | - | - |
