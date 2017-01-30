@@ -49,6 +49,7 @@ Argumenten:
 - name: alleen kleine letters en aan elkaar, naam.length() <= 20 
 
 > Sommige van ons gebruiken nog de oude versie `GO (name) (boardsize) (opponent)`, dit is makkelijk om te bouwen in de **client** door de volgende functie toe te voegen.
+
 ```
 public void announce(String msg) {
  String[] params = msg.split(" ");
@@ -62,6 +63,7 @@ public void announce(String msg) {
 }
 ```
 En in de **server** iets in deze richting.
+
 ```
   public void parseLogIn() throws IOException {
     String line, name;
