@@ -48,7 +48,7 @@ Keyword: `PLAYER`
 Argumenten:
 - name: alleen kleine letters en aan elkaar, naam.length() <= 20 
 
-> Sommige van ons gebruiken nog de oude versie `GO (name) (boardsize) (opponent)`, dit is makkelijk om te bouwen in de server door de volgende functie toe te voegen.
+> Sommige van ons gebruiken nog de oude versie `GO (name) (boardsize) (opponent)`, dit is makkelijk om te bouwen in de **client** door de volgende functie toe te voegen.
 ```
 public void announce(String msg) {
  String[] params = msg.split(" ");
@@ -60,6 +60,29 @@ public void announce(String msg) {
   return null; 
  }
 }
+```
+En in de **server** iets in deze richting.
+```
+  public void parseLogIn() throws IOException {
+    String line, name;
+    int boardSize;
+    line = in.readLine(); //Get PLAYER (name)
+    if(line.startsWith("PLAYER") && line.split(" ").length == 2) {
+      name = line.split(" ")[1];
+    } else {
+      throw new IOException("Expected PLAYER (name)");
+    }
+
+    while((line = in.readLine()) != null) {
+      if(line.startsWith("GO") && line.split(" ").length > 1) {
+        try {
+          boardSize = Integer.parseInt(line.split(" ")[1]);
+        } catch (NumberFormatException e) {
+          throw new IOException("Expected GO (boardsize) (optional: opponent)");
+        }
+      }
+    }
+  }
 ```
 
 ### Nieuw spel starten 
