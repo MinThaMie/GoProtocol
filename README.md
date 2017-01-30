@@ -14,8 +14,8 @@ Deze worden verdeeld in:
 We beschouwen de server we als perfect en de waarheid, de clients mogen hiervan uitgaan.
 
 Nog af te spreken na deze sessie: 
-- [x] Wanneer kicken we een speler? Hoeveel invalid moves mag diegene uitvoeren? 
-- [x] Wat doen we als een keyword binnenkomt dat niet is afgesproken? 
+- [x] Wanneer kicken we een speler? Hoeveel invalid moves mag diegene uitvoeren? (Een speler mag geen invalid moves doen)
+- [x] Wat doen we als een keyword binnenkomt dat niet is afgesproken? (Stuur een `WARNING`)
 
 ---
 
@@ -39,17 +39,39 @@ De server mag terugcommuniceren dit ie het keyword niet begrijpt. BV `WARNING ke
 
 
 ---
+### Inloggen
+Het eerste wat een client moet doorgeven zodra hij/zij is ingelogd is de naam van de speler.
+Dit gebeurd met het keyword `PLAYER`.
 
-### Opstarten
+Keyword: `PLAYER`
+
+Argumenten:
+- name: alleen kleine letters en aan elkaar, naam.length() <= 20 
+
+> Sommige van ons gebruiken nog de oude versie `GO (name) (boardsize) (opponent)`, dit is makkelijk om te bouwen in de server door de volgende functie toe te voegen.
+```
+public void announce(String msg) {
+ String[] params = msg.split(" ");
+ if(params.size() == 3) {
+  return String.format("PLAYER %s\nGO %s", params[1], params[2]);
+ } else if(params.size() == 4) {
+  return String.format("PLAYER %s\nGO %s %s", params[1], params[2], params[3]);
+ } else {
+  return null; 
+ }
+}
+```
+
+### Nieuw spel starten 
 Een client wil een spel starten, de server is in een staat waarin hij toegankelijk is voor clients om zich aan te bieden voor een spel. 
  
-Keyword: `GO`
+Keyword: `GO` 
+
 Argumenten: 
-- name: alleen kleine letters en aan elkaar, naam.length() <= 20 
 - boardsize: een oneven integer: 5 <= boardsize <= 131 && boardsize % 2 != 0 
 - (optional) otherName: naam van de tegenstander, alleen kleine letters en aan elkaar, naam.length() <= 20)
 
-Voorbeeld: `GO zangerrinus 9\n` 
+Voorbeeld: `GO 9\n` 
 Betekent: Ik wil Go spelen op een 9x9 bord en ik heet zangerrinus. 
 
 > Als er meerdere clients zijn, die een verschillende bordgrootte requesten mag de server verschillende dingen doen.
@@ -59,16 +81,23 @@ Zoals bijv. twee mensen met verschillende grootte aan elkaar koppelen (de server
 De client en server wachten op een tweede speler. De client kan de verbinding verbreken om te annuleren, de server moet zijn verloren verbinding goed afhandelen. 
 Server beantwoordt het verzoek aan de client door het sturen van het keyword `WAITING`. De client kan de verbinding verbreken door het keyword `CANCEL` te sturen. 
  
+**Waiting**
+
 Keyword: `WAITING` 
+
 Argumenten: geen 
 Voorbeeld: `WAITING\n`
+
+**Cancel**
 Keyword: `CANCEL`
+
 Argumenten: geen
 Voorbeeld: `CANCEL\n`
  
 Zodra er een tweede client is waartegen gespeeld kan worden, wordt dit door de server aan de clients gecommuniceerd. De server kent elke speler een kleur toe. 
  
 Keyword: `READY` 
+
 Argumenten: 
 - color: kleur van de clientspeler
 -- black: zwart 
@@ -78,6 +107,15 @@ Argumenten:
 
 Voorbeeld: `READY black barrybadpak 9\n`
 Betekent: Je kunt nu Go spelen tegen barrybadpak en jij hebt kleur zwart.
+
+### Uitloggen
+Een client kan uitloggen van de server mbv `EXIT`.
+
+Keyword: `EXIT`
+
+Argumenten: geen
+
+> Dit keyword is redundant voor Servers die hun spelers direct na de game disconnecten.
 
 ---
 
@@ -175,6 +213,12 @@ Argumenten:
 Voorbeeld: `END 16 17\n` 
 
 > De kleur was hier overbodig.
+
+**Afsluiten bij een tableflip**
+
+In het geval van een `TABLEFLIP` stuurt de server het `TABLEFLIPPED (color)` commando en eindigt hij het spel met `END -1 -1` (er is dus geen score). Er is besloten dat de niet tableflippende speler het spel wint.
+
+
 
 ### Vragen aan coaches
 - [x] Ko rule, multiple moves backward looking
